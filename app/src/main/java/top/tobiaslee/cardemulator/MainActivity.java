@@ -1,6 +1,8 @@
 package top.tobiaslee.cardemulator;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.BinderThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +28,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String URL= "http://192.168.1.193:9999";
+    private static final String URL= "http://filthon.ralee.cc:9999";
     private static final String TAG= "MainActivity";
 
     private ArrayList<FlipImageView> cards = null ;
@@ -57,11 +59,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= 21) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
         setContentView(R.layout.activity_main);
-//        Button loadCard = (Button) findViewById(R.id.load_cards);
-//        loadCard.setOnClickListener(this);
-//        Button resetBtn = (Button) findViewById(R.id.reset);
-//        resetBtn.setOnClickListener(this);
         ButterKnife.bind(this);
 
         c1_front.setImageResource(R.drawable.card_back);
@@ -75,28 +79,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FlipImageView c1 = new FlipImageView(MainActivity.this,
                 c1_front, c1_back);
         cards.add(c1);
-//        c1.readyImage();
 
         FlipImageView c2 = new FlipImageView(MainActivity.this,
                 c2_front, c2_back);
         cards.add(c2);
-//        c2.readyImage();
 
         FlipImageView c3 = new FlipImageView(MainActivity.this,
                 c3_front, c3_back);
         cards.add(c3);
-//        c3.readyImage();
 
         FlipImageView c4 = new FlipImageView(MainActivity.this,
                 c4_front, c4_back);
         cards.add(c4);
-//        c4.readyImage();
 
         FlipImageView c5 = new FlipImageView(MainActivity.this,
                 c5_front, c5_back);
         cards.add(c5);
-//        c5.readyImage();
-
     }
 
 
