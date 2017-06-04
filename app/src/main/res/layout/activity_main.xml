@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="@drawable/background"
     tools:context="top.tobiaslee.cardemulator.MainActivity">
 
     <LinearLayout
@@ -144,18 +144,12 @@
         android:orientation="vertical">
         <Button
             android:id="@+id/load_cards"
-            android:textSize="10sp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="Load Card"/>
-        <Button
-            android:id="@+id/reset"
-            android:text="reset"
-            android:textSize="10sp"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:background="@mipmap/log"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="match_parent"/>
+
     </LinearLayout>
 
 

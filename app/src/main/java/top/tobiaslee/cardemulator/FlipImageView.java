@@ -82,6 +82,7 @@ public class FlipImageView {
             default:
                 break;
         }
+        player = null ; // clear cache
         if(musicId != 0)
             player = MediaPlayer.create(mContext, musicId);
 
@@ -154,8 +155,12 @@ public class FlipImageView {
     public void reset() {
         iv1.clearAnimation();
         iv2.clearAnimation();
+        iv1.setOnClickListener(null);
+        iv2.setOnClickListener(null);
+        Log.d(TAG, "reset: asfasf");
         iv1.setVisibility(View.VISIBLE);
         iv2.setVisibility(View.GONE);
+        Log.d(TAG, "reset: ");
     }
     // flip it back
     private void flipImageBack() {
